@@ -1,29 +1,26 @@
 import { Flex, Box, Text, Input, InputGroup, InputLeftElement, IconButton, Button, InputRightElement, Divider } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { Logo } from "@/components/Logo";
-import { useState } from "react";
 
 export default function result() {
-
-
-
   return (
     <Flex
-      direction="column"
       align="center"
-      justify="center"
-      h="100vh"
-      bg={'blackAlpha.900'}
+      justify="flex-start"
+      w={'100vw'}
       gap={10}
+      direction={{base:'column',md:'row',sm:'column'}}
+      paddingTop={5}
     >
       <Box
+        marginLeft={{base:0, md:10, sm:0}}
+        
       >
-        <Logo height={"auto"} width="40vh" />
+        <Logo height={"5vh"} width=""/>
       </Box>
       <InputGroup
         w={{ base: "80%", md: "60%" }}
-        maxW={'xl'}
-        height='fit-content'
+        maxW={'md'}
       >
         <InputLeftElement
           pointerEvents="none"
