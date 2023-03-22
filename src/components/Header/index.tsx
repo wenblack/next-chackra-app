@@ -33,6 +33,7 @@ export function Header({ result }: resultProps) {
 
   return (
     <Flex
+      as={"nav"}
       align="center"
       justify="flex-start"
       w={"100vw"}
@@ -40,11 +41,12 @@ export function Header({ result }: resultProps) {
       direction={{ base: "column", md: "row", sm: "column" }}
       paddingTop={5}
     >
-      <Box marginLeft={{ base: 0, md: 10, sm: 0 }}>
+      <Box as="picture" marginLeft={{ base: 0, md: 10, sm: 0 }}>
         <Logo height={"5vh"} width="" />
       </Box>
-      <InputGroup w={{ base: "80%", md: "60%" }} maxW={"md"}>
+      <InputGroup as={"form"} w={{ base: "80%", md: "60%" }} maxW={"md"}>
         <InputLeftElement
+          as="picture"
           pointerEvents="none"
           children={<SearchIcon />}
           mx={2}

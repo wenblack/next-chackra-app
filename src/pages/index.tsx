@@ -1,7 +1,6 @@
 import {
   Flex,
   Box,
-  Text,
   Input,
   InputGroup,
   InputLeftElement,
@@ -22,6 +21,7 @@ export default function index() {
 
   function validateSearch(e: any) {
     let searchToValidate = searchPhrase;
+    e.preventDefault();
 
     if (searchToValidate === "") {
       alert("Please inform something to search");
@@ -33,6 +33,7 @@ export default function index() {
 
   return (
     <Flex
+      as={"main"}
       direction="column"
       align="center"
       justify="center"
@@ -43,13 +44,15 @@ export default function index() {
       bg={"blackAlpha.900"}
       gap={14}
     >
-      <Box>
+      <Box as={"figure"} aria-label="StarWars Logo">
         <Logo height={"10vh"} width={"100vw"} />
       </Box>
       <InputGroup
         w={{ base: "80%", md: "60%" }}
         maxW={"xl"}
         height="fit-content"
+        as={"form"}
+        onSubmit={validateSearch}
       >
         <InputLeftElement
           pointerEvents="none"
@@ -59,8 +62,10 @@ export default function index() {
           _dark={{
             color: "gray.600",
           }}
+          as={"picture"}
         />
         <Input
+          type={"text"}
           rounded={"full"}
           pl={12}
           color={"gray.900"}
@@ -70,6 +75,7 @@ export default function index() {
             _placeholder: { color: "gray.600" },
           }}
           onChange={getSearch}
+          onSubmit={validateSearch}
         />
       </InputGroup>
     </Flex>
