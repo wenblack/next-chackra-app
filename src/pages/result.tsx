@@ -1,6 +1,7 @@
 import { Flex, Box, Text, Input, InputGroup, InputLeftElement, IconButton, Button, InputRightElement, Divider } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { Logo } from "@/components/Logo";
+import { ChangeColorButton } from "@/components/ChangeColorButton";
 
 export default function result() {
   return (
@@ -34,6 +35,7 @@ export default function result() {
           bgColor={'whiteAlpha.900'}
         />
       </InputGroup>
+      <ChangeColorButton></ChangeColorButton>
     </Flex>
   );
 }
