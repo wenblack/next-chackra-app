@@ -1,4 +1,4 @@
-import { Divider, Flex } from "@chakra-ui/react";
+import { Divider, Flex, List, ListItem, UnorderedList } from "@chakra-ui/react";
 
 export function ResultView() {
   return (
@@ -10,11 +10,12 @@ export function ResultView() {
       height="full"
     >
       <Divider></Divider>
-      <ul>
-        <li>ITEM 1</li>
-        <li>ITEM 2</li>
-        <li>ITEM 3</li>
-      </ul>
+      <List id="Results ">
+        <ListItem>Lorem ipsum dolor sit amet</ListItem>
+        <ListItem>Consectetur adipiscing elit</ListItem>
+        <ListItem>Integer molestie lorem at massa</ListItem>
+        <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+      </List>
     </Flex>
   );
 }

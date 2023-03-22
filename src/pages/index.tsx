@@ -10,6 +10,7 @@ import { Logo } from "@/components/Logo";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+
 export default function index() {
   const [searchPhrase, setSearchPhrase] = useState("");
   const router = useRouter();
@@ -35,6 +36,7 @@ export default function index() {
   return (
     <Flex
       as={"main"}
+      id="content"
       direction="column"
       align="center"
       justify="center"
@@ -45,8 +47,8 @@ export default function index() {
       bg={"blackAlpha.900"}
       gap={14}
     >
-      <Box as={"figure"} aria-label="StarWars Logo">
-        <Logo height={"10vh"} width={"100vw"} />
+      <Box as="figure" aria-label="Logo" id='logo'>
+        <Logo height={"15vh"} width={"100vw"} />
       </Box>
       <InputGroup
         w={{ base: "80%", md: "60%" }}
@@ -54,6 +56,8 @@ export default function index() {
         height="fit-content"
         as={"form"}
         onSubmit={validateSearch}
+        id='InputForm'
+        aria-label="Input Form"
       >
         <InputLeftElement
           pointerEvents="none"
