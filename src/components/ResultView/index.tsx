@@ -1,4 +1,5 @@
-import { Divider, Flex, List, ListItem, UnorderedList } from "@chakra-ui/react";
+import { Divider, Flex, List, ListItem } from "@chakra-ui/react";
+import { ResultCard } from "../ResultCard";
 
 export function ResultView() {
   return (
@@ -6,15 +7,35 @@ export function ResultView() {
       mt={{ base: 2, md: 5, lg: 5, sm: 2 }}
       direction={"column"}
       w={"100vw"}
-      h={"max-content"}
       height="full"
     >
       <Divider></Divider>
-      <List id="Results ">
-        <ListItem>Lorem ipsum dolor sit amet</ListItem>
-        <ListItem>Consectetur adipiscing elit</ListItem>
-        <ListItem>Integer molestie lorem at massa</ListItem>
-        <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+      <List
+        id="Results"
+        marginLeft={{ base: 0, md: 10, sm: 0 }}
+        marginRight={{ base: 0, md: 10, sm: 0 }}
+        w={'full'}
+        maxW={'100vw'}
+        justifyContent={'center'}
+        alignItems={{ base: 'center', lg: 'flex-start' }}
+        display={'flex'}
+        flexDirection="column"
+        mt={4}
+        spacing={1}
+      >
+
+        <ListItem>
+          <ResultCard />
+        </ListItem>
+        <ListItem>
+          <ResultCard />
+        </ListItem>
+        <ListItem>
+          <ResultCard />
+        </ListItem>
+        <ListItem>
+          <ResultCard />
+        </ListItem>
       </List>
     </Flex>
   );
