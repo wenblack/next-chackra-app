@@ -32,6 +32,9 @@ export default function index() {
       align="center"
       justify="center"
       h="100vh"
+      _light={{
+        background:'gray.50'
+      }}
       bg={'blackAlpha.900'}
       gap={10}
     >
@@ -48,12 +51,20 @@ export default function index() {
           pointerEvents="none"
           children={<SearchIcon />}
           mx={2}
+          color='gray.500'
+          _dark={{
+            color:'gray.600'
+          }}
         />
         <Input
           rounded={'full'}
           pl={12}
+          color={'gray.900'}
           placeholder="Search Google or type a URL"
           bgColor={'whiteAlpha.900'}
+          _dark={{
+            _placeholder:{color:'gray.600'}
+          }}
           onChange={getSearch}
 
         />

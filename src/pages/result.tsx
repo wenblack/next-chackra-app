@@ -1,4 +1,4 @@
-import { Flex, Box, Text, Input, InputGroup, InputLeftElement, IconButton, Button, InputRightElement, Divider } from "@chakra-ui/react";
+import { Flex, Box, Input, InputGroup, InputLeftElement, IconButton, Button, InputRightElement, Divider } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { Logo } from "@/components/Logo";
 import { ChangeColorButton } from "@/components/ChangeColorButton";
@@ -15,7 +15,6 @@ export default function result() {
     >
       <Box
         marginLeft={{base:0, md:10, sm:0}}
-        
       >
         <Logo height={"5vh"} width=""/>
       </Box>
