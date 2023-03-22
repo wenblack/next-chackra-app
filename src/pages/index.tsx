@@ -1,30 +1,35 @@
-import { Flex, Box, Text, Input, InputGroup, InputLeftElement, IconButton, Button, InputRightElement, Divider } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Text,
+  Input,
+  InputGroup,
+  InputLeftElement,
+} from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { Logo } from "@/components/Logo";
 import { useState } from "react";
 
 export default function index() {
-  const [searchPhrase, setSearchPhrase] = useState('')
-  const [phraseInformed, setIsPhraseInformed] = useState(false)
+  const [searchPhrase, setSearchPhrase] = useState("");
+  const [phraseInformed, setIsPhraseInformed] = useState(false);
 
   function getSearch(e: any) {
-    let tempSearch = e.target.value
-    setSearchPhrase(tempSearch)
-    console.log(searchPhrase)
+    let tempSearch = e.target.value;
+    setSearchPhrase(tempSearch);
+    console.log(searchPhrase);
   }
 
   function validateSearch(e: any) {
-    let searchToValidate = searchPhrase
+    let searchToValidate = searchPhrase;
 
-    if (searchToValidate === '') {
-      alert("Please inform something to search")
-
+    if (searchToValidate === "") {
+      alert("Please inform something to search");
     } else {
-      alert('Please Wait')
-      setIsPhraseInformed(true)
+      alert("Please Wait");
+      setIsPhraseInformed(true);
     }
   }
-
 
   return (
     <Flex
@@ -33,40 +38,38 @@ export default function index() {
       justify="center"
       h="100vh"
       _light={{
-        background:'gray.50'
+        background: "gray.50",
       }}
-      bg={'blackAlpha.900'}
-      gap={10}
+      bg={"blackAlpha.900"}
+      gap={14}
     >
-      <Box
-      >
-        <Logo height={"auto"} width="40vh" />
+      <Box>
+        <Logo height={"10vh"} width={"100vw"} />
       </Box>
       <InputGroup
         w={{ base: "80%", md: "60%" }}
-        maxW={'xl'}
-        height='fit-content'
+        maxW={"xl"}
+        height="fit-content"
       >
         <InputLeftElement
           pointerEvents="none"
           children={<SearchIcon />}
           mx={2}
-          color='gray.500'
+          color="gray.500"
           _dark={{
-            color:'gray.600'
+            color: "gray.600",
           }}
         />
         <Input
-          rounded={'full'}
+          rounded={"full"}
           pl={12}
-          color={'gray.900'}
+          color={"gray.900"}
           placeholder="Search Google or type a URL"
-          bgColor={'whiteAlpha.900'}
+          bgColor={"whiteAlpha.900"}
           _dark={{
-            _placeholder:{color:'gray.600'}
+            _placeholder: { color: "gray.600" },
           }}
           onChange={getSearch}
-
         />
       </InputGroup>
     </Flex>
