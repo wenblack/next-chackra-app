@@ -53,9 +53,6 @@ export function Header({ result }: resultProps) {
           rounded={"full"}
           pl={12}
           onChange={changeName}
-          _light={{
-            background: "gray.50",
-          }}
           bg={"transparent"}
           _dark={{
             _placeholder: { color: "gray.400" },

@@ -38,7 +38,7 @@ export default function index() {
       justify="center"
       h="100vh"
       _light={{
-        background: "gray.50",
+        background: "white",
       }}
       bg={"blackAlpha.900"}
       gap={14}
