@@ -1,5 +1,5 @@
 import { StarIcon } from "@chakra-ui/icons";
-import { Badge, Box } from "@chakra-ui/react";
+import { Badge, Box, Divider } from "@chakra-ui/react";
 
 
 
@@ -18,8 +18,6 @@ export function ResultCard() {
     return (
         <Box
             w={{ base: '90vw', md: '80vw', sm: '80vw' }}
-            borderWidth='1px'
-            borderRadius='lg'
         >
             <Box p='6'>
                 <Box display='flex' alignItems='baseline'>
@@ -69,6 +67,7 @@ export function ResultCard() {
                     </Box>
                 </Box>
             </Box>
+            <Divider></Divider>
         </Box>
 
 

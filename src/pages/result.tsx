@@ -13,13 +13,14 @@ export default function result() {
       as={'div'}
       id="content"
       direction={'column'}
-      h={'full'}
+      h={'100vh'}
       w='full'
       maxW={'100vw'}
       _dark={{
         bgColor: 'blackAlpha.600'
       }}
-      overflow='hidden'
+      overflowX='hidden'
+      overflowY={'scroll'}
     >
       <header>
         <Header result={nameConverted}></Header>
