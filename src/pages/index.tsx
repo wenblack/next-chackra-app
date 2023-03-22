@@ -8,10 +8,11 @@ import {
 import { SearchIcon } from "@chakra-ui/icons";
 import { Logo } from "@/components/Logo";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function index() {
   const [searchPhrase, setSearchPhrase] = useState("");
-  const [phraseInformed, setIsPhraseInformed] = useState(false);
+  const router = useRouter();
 
   function getSearch(e: any) {
     let tempSearch = e.target.value;
@@ -19,7 +20,7 @@ export default function index() {
     console.log(searchPhrase);
   }
 
-  function validateSearch(e: any) {
+  async function validateSearch(e: any) {
     let searchToValidate = searchPhrase;
     e.preventDefault();
 
@@ -27,7 +28,7 @@ export default function index() {
       alert("Please inform something to search");
     } else {
       alert("Please Wait");
-      setIsPhraseInformed(true);
+      router.push(`http://localhost:3000/result?name=${searchPhrase}`);
     }
   }
 
