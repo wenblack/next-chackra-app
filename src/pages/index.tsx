@@ -29,8 +29,11 @@ export default function index() {
       alert("Please inform something to search");
     } else {
       alert("Please Wait");
-      router.push(`http://localhost:3000/result?name=${searchPhrase}`);
+      const response = await fetch('https://swapi.dev/api/films/1/')
+        .then(response => response.json())
+        .then(response => console.log(JSON.stringify(response)))
     }
+    router.push(`http://localhost:3000/result?name=${searchPhrase}`);
   }
 
   return (
