@@ -1,4 +1,4 @@
-import { Divider, Flex, List, ListItem } from "@chakra-ui/react";
+import { Divider, Flex, List, ListItem, Box, Text } from "@chakra-ui/react";
 import { ResultCard } from "../ResultCard";
 
 export function ResultView() {
@@ -10,6 +10,25 @@ export function ResultView() {
       height="full"
     >
       <Divider></Divider>
+      <Box
+        mt='2'
+        w={{ base: '90vw', md: '80vw', sm: '90vw' }}
+        fontWeight='medium'
+        as='span'
+        noOfLines={1}
+        display='flex'
+        alignItems={'center'}
+        justifyContent={'flex-start'}
+        marginLeft={{ base: "16", md: 16, sm: 20 }}
+        fontSize='sm'
+        color={'gray.600'}
+        _dark={{
+          color: 'gray.300'
+        }}
+      >
+        Found 4 Result(s)
+      </Box>
+
       <List
         id="Results"
         marginLeft={{ base: 0, md: 10, sm: 0 }}
@@ -17,7 +36,7 @@ export function ResultView() {
         w={'full'}
         maxW={'100vw'}
         justifyContent={'center'}
-        alignItems={{ base: 'center', lg: 'flex-start' }}
+        alignItems={{ base: 'center', md: 'flex-start', lg: 'flex-start' }}
         display={'flex'}
         flexDirection="column"
         mt={4}

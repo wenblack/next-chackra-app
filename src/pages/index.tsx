@@ -11,9 +11,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
+
 export default function index() {
   const [searchPhrase, setSearchPhrase] = useState("");
   const router = useRouter();
+
 
   function getSearch(e: any) {
     let tempSearch = e.target.value;
@@ -25,7 +27,7 @@ export default function index() {
     let searchToValidate = searchPhrase;
     e.preventDefault();
 
-    let teste
+
     if (searchToValidate === "") {
       alert("Please inform something to search");
     } else {
@@ -34,13 +36,13 @@ export default function index() {
         const res = await axios.get(
           `https://swapi.dev/api/people/?search=${searchPhrase}`
         )
-        teste = res.data
+        let teste = res.data
         console.log(res.data)
-        console.log(teste)
       } catch (err) {
         console.log(err);
       }
       router.push(`http://localhost:3000/result?name=${searchPhrase}`);
+
     }
 
   }

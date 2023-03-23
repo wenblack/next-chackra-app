@@ -8,6 +8,7 @@ export default function result() {
   const { name } = router.query;
   let nameConverted = String(name);
 
+
   return (
     <Flex
       as={'div'}

@@ -42,7 +42,13 @@ export function Header({ result }: resultProps) {
       direction={{ base: "column", md: "row", sm: "column" }}
       paddingTop={5}
     >
-      <Box as="picture" marginLeft={{ base: 0, md: 10, sm: 0 }}>
+      <Box
+        as="picture"
+        marginLeft={{ base: 0, md: 10, sm: 0 }}
+        display={{
+          base: "none", md: "inline", sm: "none", lg: 'inline'
+        }}
+      >
         <Link href='/'>
           <Logo height={"5vh"} width="" />
         </Link>
