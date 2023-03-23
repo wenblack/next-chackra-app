@@ -6,6 +6,7 @@ import {
   Input,
   InputLeftElement,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ChangeColorButton } from "../ChangeColorButton";
 import { Logo } from "../Logo";
@@ -42,7 +43,9 @@ export function Header({ result }: resultProps) {
       paddingTop={5}
     >
       <Box as="picture" marginLeft={{ base: 0, md: 10, sm: 0 }}>
-        <Logo height={"5vh"} width="" />
+        <Link href='/'>
+          <Logo height={"5vh"} width="" />
+        </Link>
       </Box>
       <InputGroup as={"form"} w={{ base: "80%", md: "60%" }} maxW={"md"}>
         <InputLeftElement

@@ -9,7 +9,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { Logo } from "@/components/Logo";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
+import axios from "axios";
 
 export default function index() {
   const [searchPhrase, setSearchPhrase] = useState("");
@@ -25,15 +25,24 @@ export default function index() {
     let searchToValidate = searchPhrase;
     e.preventDefault();
 
+    let teste
     if (searchToValidate === "") {
       alert("Please inform something to search");
     } else {
       alert("Please Wait");
-      const response = await fetch('https://swapi.dev/api/films/1/')
-        .then(response => response.json())
-        .then(response => console.log(JSON.stringify(response)))
+      try {
+        const res = await axios.get(
+          `https://swapi.dev/api/people/?search=${searchPhrase}`
+        )
+        teste = res.data
+        console.log(res.data)
+        console.log(teste)
+      } catch (err) {
+        console.log(err);
+      }
+      router.push(`http://localhost:3000/result?name=${searchPhrase}`);
     }
-    router.push(`http://localhost:3000/result?name=${searchPhrase}`);
+
   }
 
   return (
