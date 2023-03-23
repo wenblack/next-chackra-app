@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { MenuLeft } from "@/components/MenuLeft";
 import { ResultView } from "@/components/ResultView";
 import { Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
@@ -29,6 +30,9 @@ export default function result() {
       <main>
         <ResultView></ResultView>
       </main>
+      <aside>
+        <MenuLeft></MenuLeft>
+      </aside>
     </Flex>
   );
 }

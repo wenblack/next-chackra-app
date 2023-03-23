@@ -1,4 +1,4 @@
-import { Button, IconButton, useColorMode } from "@chakra-ui/react";
+import { Button, useColorMode } from "@chakra-ui/react";
 import { BsMoon, BsSun } from 'react-icons/bs'
 export function ChangeColorButton() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -13,3 +13,4 @@ export function ChangeColorButton() {
     </header>
   );
 }
+
