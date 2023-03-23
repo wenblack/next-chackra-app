@@ -1,9 +1,12 @@
-import { HamburgerIcon, AddIcon, ExternalLinkIcon, RepeatIcon, EditIcon } from "@chakra-ui/icons";
-import { IconButton, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import { HamburgerIcon, AddIcon, EditIcon } from "@chakra-ui/icons";
+import { IoMdColorPalette, IoMdLogOut } from 'react-icons/io'
+import { IconButton, Menu, MenuButton, MenuItem, MenuList, useColorMode } from "@chakra-ui/react";
 
 export function MenuLeft() {
+    const { colorMode, toggleColorMode } = useColorMode();
+
     return (
-        <Menu>
+        <Menu >
             <MenuButton
                 as={IconButton}
                 aria-label='Options'
@@ -12,20 +15,47 @@ export function MenuLeft() {
                 position={'fixed'}
                 top={5}
                 right={5}
-
             />
-            <MenuList>
-                <MenuItem icon={<AddIcon />} command='⌘T'>
-                    New Tab
+            <MenuList
+                _dark={{
+                    background: 'blackAlpha.900'
+                }}
+            >
+                <MenuItem
+                    as={'button'}
+                    onClick={toggleColorMode}
+                    icon={<IoMdColorPalette size={'20'} />}
+                    _dark={{
+                        background: 'blackAlpha.50',
+                        _hover: {
+                            color: 'gray.300'
+                        },
+                        _focus: {
+                            background: 'gray.600',
+                            color: 'gray.300'
+                        },
+                        color: 'gray.400'
+                    }}
+                >
+                    Change theme
                 </MenuItem>
-                <MenuItem icon={<ExternalLinkIcon />} command='⌘N'>
-                    New Window
-                </MenuItem>
-                <MenuItem icon={<RepeatIcon />} command='⌘⇧N'>
-                    Open Closed Tab
-                </MenuItem>
-                <MenuItem icon={<EditIcon />} command='⌘O'>
-                    Open File...
+                <MenuItem
+                    as={'a'}
+                    icon={<IoMdLogOut size={'20'} />}
+                    _dark={{
+                        background: 'blackAlpha.50',
+                        _hover: {
+                            color: 'gray.300'
+                        },
+                        _focus: {
+                            background: 'gray.600',
+                            color: 'gray.300'
+                        },
+                        color: 'gray.400'
+                    }}
+                    href='/'
+                >
+                    Log Out
                 </MenuItem>
             </MenuList>
         </Menu>

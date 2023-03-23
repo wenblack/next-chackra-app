@@ -53,7 +53,7 @@ export function Header({ result }: resultProps) {
           <Logo height={"5vh"} width="" />
         </Link>
       </Box>
-      <InputGroup as={"form"} w={{ base: "80%", md: "60%" }} maxW={"md"}>
+      <InputGroup as={"form"} w={{ base: "60%", md: "60%" }} maxW={"md"}>
         <InputLeftElement
           as="picture"
           pointerEvents="none"
