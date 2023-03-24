@@ -7,30 +7,31 @@ import {
   InputLeftElement,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { FormEventHandler, useEffect, useState } from "react";
 import { ChangeColorButton } from "../ChangeColorButton";
 import { Logo } from "../Logo";
 
 interface resultProps {
   result?: string;
+  submitEvent: any,
+  changeEvent: any
 }
 
-export function Header({ result }: resultProps) {
+export function Header({ result, submitEvent, changeEvent }: resultProps) {
   const [newName, setNewName] = useState("");
   const [name, setName] = useState("");
+  const router = useRouter();
 
   function getName() {
-    setName("" + result);
-    return name;
-  }
-  function changeName(e: any) {
-    setNewName(e.target.value);
-    return console.log(newName);
+    if (name === '' || undefined) {
+      setName("" + result);
+    }
   }
 
   useEffect(() => {
     getName();
-  });
+  }, []);
 
   return (
     <Flex
@@ -53,7 +54,11 @@ export function Header({ result }: resultProps) {
           <Logo height={"5vh"} width="" />
         </Link>
       </Box>
-      <InputGroup as={"form"} w={{ base: "60%", md: "60%" }} maxW={"md"}>
+      <InputGroup
+        as={"form"}
+        w={{ base: "60%", md: "60%" }} maxW={"md"}
+        onSubmit={submitEvent}
+      >
         <InputLeftElement
           as="picture"
           pointerEvents="none"
@@ -63,7 +68,7 @@ export function Header({ result }: resultProps) {
         <Input
           rounded={"full"}
           pl={12}
-          onChange={changeName}
+          onChange={changeEvent}
           bg={"transparent"}
           _dark={{
             _placeholder: { color: "gray.400" },

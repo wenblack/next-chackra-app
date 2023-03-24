@@ -20,7 +20,7 @@ export default function index() {
     setSearchPhrase(tempSearch);
   }
 
-  async function validateSearch(e: any) {
+  function validateSearch(e: any) {
     let searchToValidate = searchPhrase;
     e.preventDefault();
 

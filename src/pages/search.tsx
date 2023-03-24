@@ -3,12 +3,22 @@ import { MenuLeft } from "@/components/MenuLeft";
 import { ResultView } from "@/components/ResultView";
 import { Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function search() {
   const router = useRouter();
   const { name } = router.query;
   let nameConverted = String(name);
+  const [newName, setNewName] = useState("");
 
+  function fectchNewUser(event: any) {
+    event.preventDefault()
+    router.push(`http://localhost:3000/search?name=${newName}`);
+  }
+
+  function changeName(e: any) {
+    setNewName(e.target.value);
+  }
 
   return (
     <Flex
@@ -25,7 +35,10 @@ export default function search() {
       overflowY={'scroll'}
     >
       <header>
-        <Header result={nameConverted}></Header>
+        <Header
+          changeEvent={changeName}
+          submitEvent={fectchNewUser}
+          result={nameConverted}></Header>
       </header>
       <aside>
         <MenuLeft></MenuLeft>
