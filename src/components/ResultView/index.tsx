@@ -44,16 +44,13 @@ export function ResultView() {
       >
 
         <ListItem>
-          <ResultCard />
-        </ListItem>
-        <ListItem>
-          <ResultCard />
-        </ListItem>
-        <ListItem>
-          <ResultCard />
-        </ListItem>
-        <ListItem>
-          <ResultCard />
+          <ResultCard
+            gender="male"
+            name="Luke Skywalker"
+            height={172}
+            films={['1', '2', '3']}
+            homeworld='Earth'
+          />
         </ListItem>
       </List>
     </Flex>

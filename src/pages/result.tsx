@@ -27,12 +27,12 @@ export default function result() {
       <header>
         <Header result={nameConverted}></Header>
       </header>
-      <main>
-        <ResultView></ResultView>
-      </main>
       <aside>
         <MenuLeft></MenuLeft>
       </aside>
+      <main>
+        <ResultView></ResultView>
+      </main>
     </Flex>
   );
 }

@@ -1,45 +1,9 @@
 import { Badge, Box, Divider, Link, Text } from "@chakra-ui/react";
 
+import { PeopleProps } from "@/interfaces/global";
 
-
-export function ResultCard() {
-    const personTest = {
-        "name": "Luke Skywalker",
-        "height": 172,
-        "mass": "77",
-        "hair_color": "blond",
-        "skin_color": "fair",
-        "eye_color": "blue",
-        "birth_year": "19BBY",
-        "gender": "male",
-        "homeworld": "https://swapi.dev/api/planets/1/",
-        "films": [
-            "https://swapi.dev/api/films/1/",
-            "https://swapi.dev/api/films/2/",
-            "https://swapi.dev/api/films/3/",
-            "https://swapi.dev/api/films/6/"
-        ],
-        "species": [],
-        "vehicles": [
-            "https://swapi.dev/api/vehicles/14/",
-            "https://swapi.dev/api/vehicles/30/"
-        ],
-        "starships": [
-            "https://swapi.dev/api/starships/12/",
-            "https://swapi.dev/api/starships/22/"
-        ],
-        "created": "2014-12-09T13:50:51.644000Z",
-        "edited": "2014-12-20T21:17:56.891000Z",
-        "url": "https://swapi.dev/api/people/1/"
-    }
-
-    let age
-    if (personTest.birth_year.includes('BBY')) {
-        age = "Before the Battle of Yavin"
-    } else if (personTest.birth_year.includes('ABY')) {
-        age = "After the Battle of Yavin"
-
-    }
+export function ResultCard({ ...rest }: PeopleProps) {
+    let totalFilms = rest.films?.length
 
     return (
         <Box
@@ -61,10 +25,7 @@ export function ResultCard() {
                     maxW={"xl"}
                     color={'gray.700'}
                 >
-                    {personTest.name}
-                    <Badge display={'none'} borderRadius='full' px='2' colorScheme='teal'>
-                        {personTest.gender}
-                    </Badge>
+                    {rest.name}
                 </Box>
                 <Box display='flex' alignItems='baseline'>
 
@@ -82,11 +43,11 @@ export function ResultCard() {
                         flexDirection={'column'}
                         mt={2}
                     >
-                        <Text>{personTest.hair_color}</Text>
+                        <Text>{rest.hair_color}</Text>
                         <Text>
-                            {personTest.height / 100}cm
+                            {rest.height} cm
                         </Text>
-                        <Text>{personTest.mass}Kg</Text>
+                        <Text>{rest.mass} Kg</Text>
                     </Box>
                 </Box>
 
@@ -95,7 +56,7 @@ export function ResultCard() {
                         color: 'gray.200',
                         fontWeight: '500'
                     }}>
-                        Present in {personTest.films.length} Episodes
+                        Present in {totalFilms} Episodes
                     </Box>
                 </Box>
 
