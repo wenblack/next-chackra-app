@@ -1,20 +1,8 @@
-import { StarIcon, CheckIcon } from "@chakra-ui/icons";
 import { Badge, Box, Divider, Link, Text } from "@chakra-ui/react";
 
 
 
 export function ResultCard() {
-    const property = {
-        imageUrl: 'https://bit.ly/2Z4KKcF',
-        imageAlt: 'Rear view of modern home with pool',
-        beds: 3,
-        baths: 2,
-        title: 'Modern home in city center in the heart of historic Los Angeles',
-        formattedPrice: '$1,900.00',
-        reviewCount: 34,
-        rating: 4,
-    }
-
     const personTest = {
         "name": "Luke Skywalker",
         "height": 172,
@@ -57,9 +45,12 @@ export function ResultCard() {
         <Box
             w={{ base: '80vw', md: '80vw', sm: '80vw' }}
         >
-            <Box p='6'>
+            <Box px='6' py='2'>
                 <Box
-                    mt='1'
+                    _dark={{
+                        color: 'blue.500',
+                        fontWeight: '500'
+                    }}
                     fontWeight='semibold'
                     as='h4'
                     lineHeight='tight'
@@ -68,22 +59,28 @@ export function ResultCard() {
                     alignItems={'center'}
                     justifyContent='space-between'
                     maxW={"xl"}
+                    color={'gray.700'}
                 >
                     {personTest.name}
-                    <Badge borderRadius='full' px='2' colorScheme='teal'>
+                    <Badge display={'none'} borderRadius='full' px='2' colorScheme='teal'>
                         {personTest.gender}
                     </Badge>
                 </Box>
                 <Box display='flex' alignItems='baseline'>
 
                     <Box
-                        color='gray.500'
-                        fontWeight='semibold'
+                        _dark={{
+                            color: 'gray.200',
+                            fontWeight: '500'
+                        }}
+                        color='gray.600'
+                        fontWeight='medium'
                         letterSpacing='wide'
                         fontSize='xs'
                         textTransform='capitalize'
                         display={'flex'}
                         flexDirection={'column'}
+                        mt={2}
                     >
                         <Text>{personTest.hair_color}</Text>
                         <Text>
@@ -93,21 +90,16 @@ export function ResultCard() {
                     </Box>
                 </Box>
 
-                <Box display={'none'}>
-                    Participated in {personTest.films.length} episodes
-                    <Box as='span' color='gray.600' fontSize='sm'>
-                        / wk
-                    </Box>
-                </Box>
-
                 <Box display='flex' mt='2' alignItems='center'>
-                    <Box as='span' color='gray.600' fontSize='sm'>
+                    <Box as='span' color='gray.600' fontSize='xs' _dark={{
+                        color: 'gray.200',
+                        fontWeight: '500'
+                    }}>
                         Present in {personTest.films.length} Episodes
                     </Box>
                 </Box>
 
                 <Box
-                    mt='1'
                     fontWeight='semibold'
                     as='h4'
                     lineHeight='tight'
@@ -129,7 +121,7 @@ export function ResultCard() {
                         color={'blue.500'}
                         _dark={{
                             color: 'blue.600'
-                        }}>Show More
+                        }}>Show More...
                     </Link>
                 </Box>
 
