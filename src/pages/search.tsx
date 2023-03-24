@@ -4,7 +4,7 @@ import { ResultView } from "@/components/ResultView";
 import { Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
-export default function result() {
+export default function search() {
   const router = useRouter();
   const { name } = router.query;
   let nameConverted = String(name);
@@ -31,7 +31,9 @@ export default function result() {
         <MenuLeft></MenuLeft>
       </aside>
       <main>
-        <ResultView></ResultView>
+        <ResultView
+          person={nameConverted}
+        />
       </main>
     </Flex>
   );

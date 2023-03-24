@@ -1,7 +1,34 @@
+import { PeopleProps } from "@/interfaces/global";
 import { Divider, Flex, List, ListItem, Box, Text } from "@chakra-ui/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { ResultCard } from "../ResultCard";
 
-export function ResultView() {
+interface personName {
+  person: string
+}
+export function ResultView({ person }: personName) {
+  const [peopleDetail, setPeopleDetail] = useState<PeopleProps[]>([])
+  const [count, setCount] = useState(false)
+
+  useEffect(() => {
+    getData({ person })
+  }, [])
+
+  async function getData({ person }: personName) {
+    try {
+      const res = await axios.get(
+        `https://swapi.dev/api/people/?search=${person}`
+      )
+      setPeopleDetail(res.data.results)
+      setCount(res.data.count)
+      console.log(res.data)
+    } catch (eror) {
+      console.error()
+    }
+  }
+
+
   return (
     <Flex
       mt={{ base: 2, md: 5, lg: 5, sm: 2 }}
@@ -26,7 +53,7 @@ export function ResultView() {
           color: 'gray.300'
         }}
       >
-        Found 4 Result(s)
+        Found {count} Result(s)
       </Box>
 
       <List
@@ -42,16 +69,24 @@ export function ResultView() {
         mt={4}
         spacing={1}
       >
+        {
+          peopleDetail.map((peoples, i) =>
+            <ListItem
+              key={i}
+            >
+              <ResultCard
+                gender={peoples.gender}
+                birth_year={peoples.birth_year}
+                mass={peoples.mass}
+                name={peoples.name}
+                height={peoples.height}
+                films={peoples.films}
+                homeworld={peoples.homeworld}
+              />
+            </ListItem>
+          )
+        }
 
-        <ListItem>
-          <ResultCard
-            gender="male"
-            name="Luke Skywalker"
-            height={172}
-            films={['1', '2', '3']}
-            homeworld='Earth'
-          />
-        </ListItem>
       </List>
     </Flex>
   );

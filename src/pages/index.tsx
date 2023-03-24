@@ -9,8 +9,6 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { Logo } from "@/components/Logo";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
-
 
 export default function index() {
   const [searchPhrase, setSearchPhrase] = useState("");
@@ -20,7 +18,6 @@ export default function index() {
   function getSearch(e: any) {
     let tempSearch = e.target.value;
     setSearchPhrase(tempSearch);
-    console.log(searchPhrase);
   }
 
   async function validateSearch(e: any) {
@@ -31,18 +28,7 @@ export default function index() {
     if (searchToValidate === "") {
       alert("Please inform something to search");
     } else {
-      alert("Please Wait");
-      try {
-        const res = await axios.get(
-          `https://swapi.dev/api/people/?search=${searchPhrase}`
-        )
-        let teste = res.data
-        console.log(res.data)
-      } catch (err) {
-        console.log(err);
-      }
-      router.push(`http://localhost:3000/result?name=${searchPhrase}`);
-
+      router.push(`http://localhost:3000/search?name=${searchPhrase}`);
     }
 
   }
