@@ -1,6 +1,7 @@
 import { PeopleProps } from "@/interfaces/global";
 import { Divider, Flex, List, ListItem, Box, Text } from "@chakra-ui/react";
 import axios from "axios";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ResultCard } from "../ResultCard";
 
@@ -10,15 +11,19 @@ interface personName {
 export function ResultView({ person }: personName) {
   const [peopleDetail, setPeopleDetail] = useState<PeopleProps[]>([])
   const [count, setCount] = useState(false)
+  const router = useRouter();
+  const { name } = router.query;
+  let nameConverted = String(name)
+
 
   useEffect(() => {
-    getData({ person })
-  }, [])
+    getData()
+  }, [person])
 
-  async function getData({ person }: personName) {
+  async function getData() {
     try {
       const res = await axios.get(
-        `https://swapi.dev/api/people/?search=${person}`
+        `https://swapi.dev/api/people/?search=${nameConverted}`
       )
       setPeopleDetail(res.data.results)
       setCount(res.data.count)

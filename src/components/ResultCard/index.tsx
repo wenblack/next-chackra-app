@@ -43,7 +43,7 @@ export function ResultCard({ ...rest }: PeopleProps) {
                         flexDirection={'column'}
                         mt={2}
                     >
-                        <Text>{rest.hair_color}</Text>
+                        <Text>{rest.gender}</Text>
                         <Text>
                             {rest.height} cm
                         </Text>
