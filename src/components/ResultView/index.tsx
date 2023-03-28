@@ -1,16 +1,13 @@
 import { PeopleProps } from "@/interfaces/global";
-import { Divider, Flex, List, ListItem, Box, Text } from "@chakra-ui/react";
+import { Divider, Flex, List, ListItem, Box } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ResultCard } from "../ResultCard";
 
-interface personName {
-  person: string
-}
-export function ResultView({ person }: personName) {
+export function ResultView() {
   const [peopleDetail, setPeopleDetail] = useState<PeopleProps[]>([])
-  const [count, setCount] = useState(false)
+  const [count, setCount] = useState(0)
   const router = useRouter();
   const { name } = router.query;
   let nameConverted = String(name)
@@ -18,7 +15,7 @@ export function ResultView({ person }: personName) {
 
   useEffect(() => {
     getData()
-  }, [person])
+  }, [name])
 
   async function getData() {
     try {
@@ -27,7 +24,6 @@ export function ResultView({ person }: personName) {
       )
       setPeopleDetail(res.data.results)
       setCount(res.data.count)
-      console.log(res.data)
     } catch (eror) {
       console.error()
     }
@@ -57,8 +53,9 @@ export function ResultView({ person }: personName) {
         _dark={{
           color: 'gray.300'
         }}
-      >
-        Found {count} Result(s)
+      >{
+          count > 10 ? `Showing 10 of ${count} Results` : `Found ${count} Results`
+        }
       </Box>
 
       <List

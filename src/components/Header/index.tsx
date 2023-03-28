@@ -7,8 +7,6 @@ import {
   InputLeftElement,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { FormEventHandler, useEffect, useState } from "react";
 import { ChangeColorButton } from "../ChangeColorButton";
 import { Logo } from "../Logo";
 
@@ -19,20 +17,6 @@ interface resultProps {
 }
 
 export function Header({ result, submitEvent, changeEvent }: resultProps) {
-  const [newName, setNewName] = useState("");
-  const [name, setName] = useState("");
-  const router = useRouter();
-
-  function getName() {
-    if (name === '' || undefined) {
-      setName("" + result);
-    }
-  }
-
-  useEffect(() => {
-    getName();
-  }, []);
-
   return (
     <Flex
       as={"nav"}
@@ -73,7 +57,7 @@ export function Header({ result, submitEvent, changeEvent }: resultProps) {
           _dark={{
             _placeholder: { color: "gray.400" },
           }}
-          placeholder={name}
+          placeholder={result}
         />
       </InputGroup>
       <ChangeColorButton></ChangeColorButton>

@@ -13,15 +13,13 @@ export default function search() {
 
 
   function changeName(e: any) {
-    setNewName(e.target.value);
-    console.log(newName)
+    setNewName(e.target.value)
   }
 
   function validateName(e: any) {
     e.preventDefault()
     router.push(`http://localhost:3000/search?name=${newName}`)
   }
-
 
   return (
     <Flex
@@ -41,14 +39,14 @@ export default function search() {
         <Header
           changeEvent={changeName}
           submitEvent={validateName}
-          result={nameConverted}></Header>
+          result={nameConverted}
+        ></Header>
       </header>
       <aside>
         <MenuLeft></MenuLeft>
       </aside>
       <main>
         <ResultView
-          person={nameConverted}
         />
       </main>
     </Flex>
