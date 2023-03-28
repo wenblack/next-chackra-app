@@ -13,12 +13,16 @@ export function MenuLeft() {
                 icon={<HamburgerIcon />}
                 variant='outline'
                 position={'fixed'}
+                style={{
+                    position: 'fixed',
+                    zIndex: 1
+                }}
                 top={5}
                 right={{ base: 8, md: 8, lg: 10, sm: 8 }}
             />
             <MenuList
                 _dark={{
-                    background: 'blackAlpha.900'
+                    background: 'gray.700'
                 }}
             >
                 <MenuItem
@@ -34,7 +38,7 @@ export function MenuLeft() {
                             background: 'gray.600',
                             color: 'gray.300'
                         },
-                        color: 'gray.400'
+                        color: 'white'
                     }}
                 >
                     Change theme
@@ -51,7 +55,7 @@ export function MenuLeft() {
                             background: 'gray.600',
                             color: 'gray.300'
                         },
-                        color: 'gray.400'
+                        color: 'white'
                     }}
                     href='/'
                 >

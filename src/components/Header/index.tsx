@@ -20,12 +20,21 @@ export function Header({ result, submitEvent, changeEvent }: resultProps) {
   return (
     <Flex
       as={"nav"}
-      align="center"
-      justify="flex-start"
+      style={{
+        position: 'fixed',
+        zIndex: 1
+      }}
+      alignItems='center'
+      height={'13vh'}
+      _dark={{
+        background: 'gray.700'
+      }}
+      background={'white'}
+      justify={{ base: 'center', md: 'center', lg: "flex-start" }}
       w={"100vw"}
       gap={{ base: 4, lg: 10 }}
-      direction={{ base: "column", md: "row", sm: "column", lg: 'row' }}
-      paddingTop={5}
+      direction={'row'}
+      boxShadow={'md'}
     >
       <Box
         as="picture"

@@ -33,8 +33,9 @@ export default function search() {
       _dark={{
         bgColor: 'blackAlpha.600'
       }}
-      overflowX='hidden'
-      overflowY={'scroll'}
+      overflowX={'hidden'}
+      overflowY={'auto'}
+      justifyContent='flex-start'
     >
       <header>
         <Header

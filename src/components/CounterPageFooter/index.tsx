@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Divider } from "@chakra-ui/react";
 import { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
@@ -32,10 +32,15 @@ export function CounterPageFooter({ totalPages }: FooterProps) {
     return (
         <Box
             display="flex"
+            position={'relative'}
+            bottom={0}
             justifyContent="center"
             alignItems="center"
-            mt={4}
+            my={4}
+            w='full'
+            zIndex={1}
         >
+
             <Button
                 variant={page === 1 ? 'ghost' : 'solid'}
                 opacity={

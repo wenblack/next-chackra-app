@@ -1,5 +1,5 @@
 import { PeopleProps } from "@/interfaces/global";
-import { Divider, Flex, List, ListItem, Box } from "@chakra-ui/react";
+import { Flex, List, ListItem, Box } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -36,8 +36,8 @@ export function ResultView() {
       direction={"column"}
       w={"100vw"}
       height="full"
+      pt={'13vh'}
     >
-      <Divider></Divider>
       <Box
         mt='2'
         w={{ base: '90vw', md: '80vw', sm: '90vw' }}
@@ -88,7 +88,6 @@ export function ResultView() {
             </ListItem>
           )
         }
-
       </List>
     </Flex>
   );
