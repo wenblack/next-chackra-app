@@ -1,3 +1,4 @@
+import { CounterPageFooter } from "@/components/CounterPageFooter";
 import { Header } from "@/components/Header";
 import { MenuLeft } from "@/components/MenuLeft";
 import { ResultView } from "@/components/ResultView";
@@ -49,6 +50,11 @@ export default function search() {
         <ResultView
         />
       </main>
+      <footer>
+        <CounterPageFooter
+          totalPages={10}
+        />
+      </footer>
     </Flex>
   );
 }

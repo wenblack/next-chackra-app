@@ -14,7 +14,7 @@ export function MenuLeft() {
                 variant='outline'
                 position={'fixed'}
                 top={5}
-                right={5}
+                right={{ base: 8, md: 8, lg: 10, sm: 8 }}
             />
             <MenuList
                 _dark={{

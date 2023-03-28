@@ -24,12 +24,12 @@ export function Header({ result, submitEvent, changeEvent }: resultProps) {
       justify="flex-start"
       w={"100vw"}
       gap={{ base: 4, lg: 10 }}
-      direction={{ base: "column", md: "row", sm: "column" }}
+      direction={{ base: "column", md: "row", sm: "column", lg: 'row' }}
       paddingTop={5}
     >
       <Box
         as="picture"
-        marginLeft={{ base: 0, md: 10, sm: 0 }}
+        marginLeft={{ base: 0, md: 14, sm: 0 }}
         display={{
           base: "none", md: "inline", sm: "none", lg: 'inline'
         }}
@@ -40,7 +40,7 @@ export function Header({ result, submitEvent, changeEvent }: resultProps) {
       </Box>
       <InputGroup
         as={"form"}
-        w={{ base: "60%", md: "60%" }} maxW={"md"}
+        w={{ base: "55%", md: "55%" }} maxW={"md"}
         onSubmit={submitEvent}
       >
         <InputLeftElement
