@@ -1,21 +1,53 @@
-<h1> StarWars WIKI </h1>
+<div style="text-align:center">
+<img src="./public/logo.svg" alt="MarineGEO circle logo" style="height: 300px; width:300px;"/>
+</div>
 
-Welcome to StarWars WIKI! This is a comprehensive online encyclopedia of the Star Wars universe, including characters, planets, species, vehicles, weapons, and much more.
+Welcome to <strong>StarWars WIKI!</strong>
 
-## Features
-* Extensive information on all aspects of the Star Wars universe
-* Easy-to-use search function to quickly find the information you need
-* User-friendly interface for a seamless browsing experience
-* Mobile-friendly design for easy access on the go
+This is a comprehensive online encyclopedia of the Star Wars universe, including characters, planets, species, vehicles, weapons, and much more.
+
+ May the Force be with you! 
+
+<br>
+<hr>
 
 ## Getting Started
 
-To start exploring the StarWars WIKI, simply use the search bar to look up a specific topic, or browse the categories to discover new information. Our content is organized in a logical and easy-to-use way, making it simple to find what you're looking for.
+To start exploring the StarWars WIKI, simply use the search bar to discover new information. Our content is organized in a logical and easy-to-use way, making it simple to find what you're looking for.
+<hr>
 
-## Contributing
-We welcome contributions from anyone who is passionate about Star Wars! If you would like to contribute to StarWars WIKI, please comment ou make a PR.
+## Deploy 
 
-## Contact Us
-If you have any questions or feedback about StarWars WIKI, please contact us at [email protected] We are always happy to hear from our users and will do our best to respond to all inquiries in a timely manner.
+Star Wars Wiki is a web system created with Next.js. To use it, follow this steps: 
 
-<strong>May the Force be with you!
+
+#### Clone this repo:
+```bash
+  git clone https://github.com/wenblack/next-chackra-app
+```
+
+#### Open project folder:
+```bash
+  cd next-chackra-app
+```
+
+
+#### Install dependencies:
+```bash
+  yarn
+```
+
+
+Open your local system  on  url: [localhost:3000](https://www.typescriptlang.org/)
+
+<hr>
+
+## Authors
+
+[wenblack](https://www.github.com/weblack)
+
+
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
+

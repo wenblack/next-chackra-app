@@ -74,7 +74,7 @@ export default function index() {
           rounded={"full"}
           pl={12}
           color={"gray.900"}
-          placeholder="Search Google or type a URL"
+          placeholder="Search Person"
           bgColor={"whiteAlpha.900"}
           _dark={{
             _placeholder: { color: "gray.600" },
