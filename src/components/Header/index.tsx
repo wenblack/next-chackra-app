@@ -27,7 +27,7 @@ export function Header({ result, submitEvent, changeEvent }: resultProps) {
       alignItems='center'
       height={'13vh'}
       _dark={{
-        background: 'gray.700'
+        background: 'blackAlpha.600'
       }}
       background={'white'}
       justify={{ base: 'center', md: 'center', lg: "flex-start" }}
