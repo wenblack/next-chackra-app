@@ -7,8 +7,8 @@ import {
   InputLeftElement,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { ChangeColorButton } from "../ChangeColorButton";
 import { Logo } from "../Logo";
+import { MenuLeft } from "../MenuLeft";
 
 interface resultProps {
   result?: string;
@@ -25,9 +25,9 @@ export function Header({ result, submitEvent, changeEvent }: resultProps) {
         zIndex: 1
       }}
       alignItems='center'
-      height={'13vh'}
+      height={'8vh'}
       _dark={{
-        background: 'blackAlpha.600'
+        background: '#1A202C'
       }}
       background={'white'}
       justify={{ base: 'center', md: 'center', lg: "flex-start" }}
@@ -40,7 +40,7 @@ export function Header({ result, submitEvent, changeEvent }: resultProps) {
         as="picture"
         marginLeft={{ base: 0, md: 14, sm: 0 }}
         display={{
-          base: "none", md: "inline", sm: "none", lg: 'inline'
+          base: "none", md: "none", sm: "none", lg: 'inline'
         }}
       >
         <Link href='/'>
@@ -55,9 +55,10 @@ export function Header({ result, submitEvent, changeEvent }: resultProps) {
         <InputLeftElement
           as="picture"
           pointerEvents="none"
-          children={<SearchIcon />}
           mx={2}
-        />
+        >
+          <SearchIcon />
+        </InputLeftElement>
         <Input
           rounded={"full"}
           pl={12}
@@ -69,7 +70,7 @@ export function Header({ result, submitEvent, changeEvent }: resultProps) {
           placeholder={result}
         />
       </InputGroup>
-      <ChangeColorButton></ChangeColorButton>
+      <MenuLeft></MenuLeft>
     </Flex>
-  );
+  )
 }

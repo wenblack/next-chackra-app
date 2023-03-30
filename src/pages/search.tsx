@@ -6,7 +6,7 @@ import { Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
-export default function search() {
+export default function Search() {
   const router = useRouter();
   const { name } = router.query;
   let nameConverted = String(name)
@@ -46,8 +46,9 @@ export default function search() {
       w='full'
       maxW={'100vw'}
       _dark={{
-        bgColor: 'blackAlpha.600'
+        background: '#1A202C'
       }}
+
       overflowX={'hidden'}
       overflowY={'auto'}
       justifyContent='flex-start'
@@ -59,9 +60,6 @@ export default function search() {
           result={nameConverted}
         ></Header>
       </header>
-      <aside>
-        <MenuLeft></MenuLeft>
-      </aside>
       <main>
         <ResultView
           search={search}

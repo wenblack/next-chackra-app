@@ -12,12 +12,10 @@ export function MenuLeft() {
                 aria-label='Options'
                 icon={<HamburgerIcon />}
                 variant='outline'
-                position={'fixed'}
                 style={{
                     position: 'fixed',
                     zIndex: 1
                 }}
-                top={5}
                 right={{ base: 8, md: 8, lg: 10, sm: 8 }}
             />
             <MenuList

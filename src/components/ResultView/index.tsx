@@ -42,7 +42,7 @@ export function ResultView({ search }: ResultProps) {
       direction={"column"}
       w={"100vw"}
       height="full"
-      pt={'13vh'}
+      pt={'8vh'}
     >
       <Box
         mt='2'

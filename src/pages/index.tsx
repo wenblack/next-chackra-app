@@ -10,7 +10,7 @@ import { Logo } from "@/components/Logo";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function index() {
+export default function Index() {
   const [searchPhrase, setSearchPhrase] = useState("");
   const router = useRouter();
 
