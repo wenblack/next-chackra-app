@@ -4,17 +4,27 @@ import { MenuLeft } from "@/components/MenuLeft";
 import { ResultView } from "@/components/ResultView";
 import { Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function search() {
   const router = useRouter();
   const { name } = router.query;
   let nameConverted = String(name)
   const [newName, setNewName] = useState("");
+  const [search, setSearch] = useState("");
+  const [loading, setIsLoading] = useState(1);
 
+  useEffect(() => {
+    getSearch()
+  }, [name])
 
   function changeName(e: any) {
     setNewName(e.target.value)
+    console.log(newName)
+  }
+
+  function getSearch() {
+    setSearch(nameConverted)
   }
 
   function validateName(e: any) {
@@ -49,6 +59,7 @@ export default function search() {
       </aside>
       <main>
         <ResultView
+          search={search}
         />
       </main>
       <footer>

@@ -5,25 +5,28 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ResultCard } from "../ResultCard";
 
-export function ResultView() {
+interface ResultProps {
+  search: string
+}
+export function ResultView({ search }: ResultProps) {
   const [peopleDetail, setPeopleDetail] = useState<PeopleProps[]>([])
   const [count, setCount] = useState(0)
   const router = useRouter();
   const { name } = router.query;
-  let nameConverted = String(name)
 
 
   useEffect(() => {
     getData()
-  }, [name])
+  }, [search, name])
 
   async function getData() {
     try {
       const res = await axios.get(
-        `https://swapi.dev/api/people/?search=${nameConverted}`
+        `https://swapi.dev/api/people/?search=${name}`
       )
       setPeopleDetail(res.data.results)
       setCount(res.data.count)
+      return (false)
     } catch (eror) {
       console.error()
     }
