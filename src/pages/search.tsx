@@ -12,24 +12,29 @@ export default function search() {
   let nameConverted = String(name)
   const [newName, setNewName] = useState("");
   const [search, setSearch] = useState("");
-  const [loading, setIsLoading] = useState(1);
+  const [newLoading, setNewLoading] = useState(false)
 
   useEffect(() => {
     getSearch()
-  }, [name])
+  }, [newLoading, name])
 
   function changeName(e: any) {
     setNewName(e.target.value)
     console.log(newName)
+    setNewLoading(true)
   }
 
   function getSearch() {
     setSearch(nameConverted)
+    setNewLoading(true)
+    return (false)
   }
+
+
 
   function validateName(e: any) {
     e.preventDefault()
-    router.push(`http://localhost:3000/search?name=${newName}`)
+    router.push(`/search?name=${newName}`)
   }
 
   return (

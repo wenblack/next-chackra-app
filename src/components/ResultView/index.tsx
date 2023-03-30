@@ -13,17 +13,20 @@ export function ResultView({ search }: ResultProps) {
   const [count, setCount] = useState(0)
   const router = useRouter();
   const { name } = router.query;
-
+  const [personName, setPersonName] = useState('')
 
   useEffect(() => {
     getData()
-  }, [search, name])
+  }, [search, personName])
 
   async function getData() {
     try {
       const res = await axios.get(
         `https://swapi.dev/api/people/?search=${name}`
       )
+      let teste = String(name)
+      setPersonName(teste)
+      console.log(personName)
       setPeopleDetail(res.data.results)
       setCount(res.data.count)
       return (false)

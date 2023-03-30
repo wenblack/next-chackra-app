@@ -28,7 +28,7 @@ export default function index() {
     if (searchToValidate === "") {
       alert("Please inform something to search");
     } else {
-      router.push(`http://localhost:3000/search?name=${searchPhrase}`);
+      router.push(`/search?name=${searchPhrase}`);
     }
 
   }
