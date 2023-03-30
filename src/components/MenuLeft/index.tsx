@@ -10,7 +10,8 @@ export function MenuLeft() {
             <MenuButton
                 as={IconButton}
                 aria-label='Options'
-                icon={<HamburgerIcon />}
+                icon={<HamburgerIcon boxSize={5} />}
+                border='none'
                 variant='outline'
                 style={{
                     position: 'fixed',

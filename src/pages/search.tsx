@@ -65,11 +65,6 @@ export default function Search() {
           search={search}
         />
       </main>
-      <footer>
-        <CounterPageFooter
-          totalPages={10}
-        />
-      </footer>
     </Flex>
   );
 }

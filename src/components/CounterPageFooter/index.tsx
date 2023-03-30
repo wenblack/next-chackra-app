@@ -1,34 +1,15 @@
 import { Box, Button, Divider } from "@chakra-ui/react";
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
 interface FooterProps {
-    totalPages: number
-
+    hasNextPage: string | null
+    hasPrevPage: string | null
+    nextFunction: MouseEventHandler
+    prevFunction: MouseEventHandler
 }
 
-export function CounterPageFooter({ totalPages }: FooterProps) {
-    const [page, setPage] = useState(1)
-    const [disableNext, setdisableNext] = useState(false)
-    const [disablePrev, setdisablePrev] = useState(false)
-
-    function next() {
-        if (page === totalPages) {
-            return false
-        } else {
-            setPage(Number(page + 1))
-
-        }
-    }
-    function prev() {
-        if (page === 1) {
-            return false
-        }
-        else {
-            setPage(Number(page - 1))
-        }
-    }
-
+export function CounterPageFooter({ prevFunction, nextFunction, hasNextPage, hasPrevPage }: FooterProps) {
     return (
         <Box
             display="flex"
@@ -42,26 +23,26 @@ export function CounterPageFooter({ totalPages }: FooterProps) {
         >
 
             <Button
-                variant={page === 1 ? 'ghost' : 'solid'}
+                variant={hasPrevPage === null ? 'ghost' : 'solid'}
                 opacity={
-                    page === 1 ? 0.4 : 1
+                    hasPrevPage === null ? 0.4 : 1
                 }
-                onClick={prev}
+                onClick={prevFunction}
                 cursor={
-                    page === 1 ? 'not-allowed' : 'pointer'
+                    hasPrevPage === null ? 'not-allowed' : 'pointer'
                 }
             >
                 <ChevronLeftIcon boxSize={5} />
             </Button>
-            <Box mx={4}>{`Page ${page}`}</Box>
+
             <Button
-                onClick={next}
-                variant={page === totalPages ? 'ghost' : 'solid'}
+                onClick={nextFunction}
+                variant={hasNextPage === null ? 'ghost' : 'solid'}
                 opacity={
-                    page === totalPages ? 0.4 : 1
+                    hasNextPage === null ? 0.4 : 1
                 }
                 cursor={
-                    page === totalPages ? 'not-allowed' : 'pointer'
+                    hasNextPage === null ? 'not-allowed' : 'pointer'
                 }
             >
                 <ChevronRightIcon boxSize={5} />

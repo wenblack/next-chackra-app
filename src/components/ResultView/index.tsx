@@ -3,6 +3,7 @@ import { Flex, List, ListItem, Box } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { CounterPageFooter } from "../CounterPageFooter";
 import { ResultCard } from "../ResultCard";
 
 interface ResultProps {
@@ -14,27 +15,46 @@ export function ResultView({ search }: ResultProps) {
   const router = useRouter();
   const { name } = router.query;
   const [personName, setPersonName] = useState('')
+  const [next, setNext] = useState('')
+  const [prev, setPrev] = useState('')
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
     getData()
-  }, [search, personName])
+  }, [search, personName, page])
+
+  function changeNextPage() {
+    if (next === null) {
+      return false
+    } else {
+      setPage(page + 1)
+    }
+  }
+  function previsousPage() {
+    if (prev === null) {
+      return false
+    }
+    else {
+      setPage(page - 1)
+    }
+  }
 
   async function getData() {
     try {
       const res = await axios.get(
-        `https://swapi.dev/api/people/?search=${name}`
+        `https://swapi.dev/api/people/?search=${name}&page=${page}`
       )
       let teste = String(name)
       setPersonName(teste)
-      console.log(personName)
       setPeopleDetail(res.data.results)
       setCount(res.data.count)
+      setNext(res.data.next)
+      setPrev(res.data.previous)
       return (false)
     } catch (eror) {
       console.error()
     }
   }
-
 
   return (
     <Flex
@@ -60,7 +80,7 @@ export function ResultView({ search }: ResultProps) {
           color: 'gray.300'
         }}
       >{
-          count > 10 ? `Showing 10 of ${count} Results` : `Found ${count} Results`
+          count > 10 ? `Showing ${peopleDetail.length} of ${count} Results` : `Found ${count} Results`
         }
       </Box>
 
@@ -95,6 +115,15 @@ export function ResultView({ search }: ResultProps) {
           )
         }
       </List>
+
+      <footer>
+        <CounterPageFooter
+          hasNextPage={next}
+          hasPrevPage={prev}
+          nextFunction={changeNextPage}
+          prevFunction={previsousPage}
+        />
+      </footer>
     </Flex>
   );
 }
